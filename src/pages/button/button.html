@@ -1,0 +1,92 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			按钮示例
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!-- Colors -->
+	Colors:
+	<br>
+	<button ion-button>Default</button>
+
+	<button ion-button color="secondary">Secondary</button>
+
+	<button ion-button color="danger">Danger</button>
+
+	<button ion-button color="light">Light</button>
+
+	<button ion-button color="dark">Dark</button>
+	<br>
+	<!-- Shapes -->
+	Shapes:
+	<br>
+	<table>
+		<tr>
+			<td>	
+				<button ion-button block>Block Button</button>
+			</td>
+			<td></td>
+		</tr>
+	</table>
+	<button ion-button full>Full Button</button>
+	<button ion-button round>Round Button</button>
+	<br>
+	<!-- Outline -->
+	Outline:
+	<br>
+	<button ion-button full outline>Outline + Full</button>
+
+	<button ion-button block outline>Outline + Block</button>
+
+	<button ion-button round outline>Outline + Round</button>
+
+	<br>
+	Icons:
+	<br>
+	<!-- Icons -->
+	<button ion-button icon-left>
+		<ion-icon name="star"></ion-icon>
+		Left Icon
+	</button>
+
+	<button ion-button icon-right>
+		Right Icon
+		<ion-icon name="star"></ion-icon>
+	</button>
+
+	<button ion-button icon-only>
+		<ion-icon name="star"></ion-icon>
+	</button>
+	<br>
+	Sizes:
+	<br>
+	<!-- Sizes -->
+	<button ion-button large>Large</button>
+
+	<button ion-button>Default</button>
+
+	<button ion-button small>Small</button>
+	<br>
+	Advance:
+	<br>
+	<button ion-button [color]="isDanger?'danger':'primary'">advanced</button>
+
+	<!-- Bind the color and round inputs to an expression -->
+	<button ion-button [color]="myColor" [round]="isRound">
+		Secondary (Round)
+	</button>
+
+	<!-- Bind the color and clear inputs to an expression -->
+	<button ion-button [color]="isSecondary ? 'secondary' : 'primary'"  [clear]="isClear">
+		Primary (Clear)
+	</button>
+
+	<!-- Bind the color, outline and round inputs to an expression -->
+	<button ion-button [color]="myColor2" [outline]="isOutline" [round]="isRound">
+		Dark (Solid + Round)
+	</button>
+
+</ion-content>

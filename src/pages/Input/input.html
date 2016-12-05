@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Input Practise
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label color="danger">inline label</ion-label>
+			<ion-input color="danger" placeholder="inline label" clearOnEdit="true"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="danger" fixed>fixed label</ion-label>
+			<ion-input placeholder="fixed label" clearInput  disabled="true" ></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>number</ion-label>
+			<ion-input type="number"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>floating</ion-label>
+			<ion-input placeholder="floating" (blur)="blurInput()" (focus)="focusInput()"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>stacked</ion-label>
+			<ion-input placeholder="stacked"></ion-input>
+		</ion-item>
+	</ion-list>
+</ion-content>
