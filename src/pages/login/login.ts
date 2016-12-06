@@ -68,10 +68,39 @@ export class LoginPage {
 				message:'UserName can not be empty...',
 				buttons:["OK"],
 				cssClass:'danger',
-				inputs:["text","password"]
+				inputs:["text","password"],
+				enableBackdropDismiss:false
 			});
 			alertUserNameError.present();
-		} else {
+		} else if(this.userInfo.PassWord == ""){
+			let alertPwdError = this.alertCtrl.create({
+				title:'Login Info',
+				subTitle:'please enter a valid Password',
+				message:'password can not be empty...',
+				buttons:[{
+					text:'I see',
+					handler:()=>{
+						console.log('tap i see!');
+						return false;
+					},
+					cssClass:"color:danger"
+				},{
+					text:'Cancel',
+					handler:()=>{
+						console.log('tap cancel!');
+					},
+					cssClass:'danger',
+					role:'null'
+				}],
+				inputs:[{
+					type:'checkbox'
+				},{
+					type:'checkbox'
+				}]
+			});
+			alertPwdError.present();
+		} 
+		else {
 			this.loadDefault();
 		}
 	}
