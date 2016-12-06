@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController,LoadingController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { NavController,LoadingController,AlertController } from 'ionic-angular';
+import { AlertPage } from '../alert/alert';
 
 @Component({
 	selector:'login-page',
@@ -8,7 +8,9 @@ import { HomePage } from '../home/home';
 })
 
 export class LoginPage {
-	constructor(public NavCtrl:NavController,public LoadCtrl:LoadingController){
+	constructor(public NavCtrl:NavController,
+		public LoadCtrl:LoadingController,
+		private alertCtrl:AlertController){
 	}
 	userInfo:UserInfo={
 		UserName:'liuzhuang',
@@ -24,7 +26,7 @@ export class LoginPage {
 		});
 		loading.present();
 		setTimeout(()=>{
-			this.NavCtrl.push(HomePage);
+			this.NavCtrl.push(AlertPage);
 		},1000);
 		setTimeout(()=>{
 			loading.dismiss();
@@ -56,9 +58,22 @@ export class LoginPage {
 	}
 
 	btnClick(){
-		this.loadDefault();
+		// this.loadDefault();
 		// this.loadText();
 		// this.loadCustom();
+		if(this.userInfo.UserName == "" ){
+			let alertUserNameError = this.alertCtrl.create({
+				title:"Login Info",
+				subTitle:"please enter a valid UserName",
+				message:'UserName can not be empty...',
+				buttons:["OK"],
+				cssClass:'danger',
+				inputs:["text","password"]
+			});
+			alertUserNameError.present();
+		} else {
+			this.loadDefault();
+		}
 	}
 }
 

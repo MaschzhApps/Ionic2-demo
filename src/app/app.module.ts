@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ButtonPage } from '../pages/button/button';
 import { InputPage } from '../pages/input/input';
 import { LoginPage } from '../pages/login/login';
+import { AlertPage } from '../pages/alert/alert';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginPage } from '../pages/login/login';
   TabsPage,
   ButtonPage,
   InputPage,
-  LoginPage
+  LoginPage,
+  AlertPage
   ],
   imports: [
   IonicModule.forRoot(MyApp)
@@ -32,7 +34,8 @@ import { LoginPage } from '../pages/login/login';
   TabsPage,
   ButtonPage,
   InputPage,
-  LoginPage
+  LoginPage,
+  AlertPage
   ],
   providers: []
 })
