@@ -9,6 +9,7 @@ import { ButtonPage } from '../pages/button/button';
 import { InputPage } from '../pages/input/input';
 import { LoginPage } from '../pages/login/login';
 import { AlertPage } from '../pages/alert/alert';
+import {RegisterPage} from '../pages/register/register';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AlertPage } from '../pages/alert/alert';
   ButtonPage,
   InputPage,
   LoginPage,
-  AlertPage
+  AlertPage,
+  RegisterPage
   ],
   imports: [
   IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { AlertPage } from '../pages/alert/alert';
   ButtonPage,
   InputPage,
   LoginPage,
-  AlertPage
+  AlertPage,
+  RegisterPage
   ],
   providers: []
 })

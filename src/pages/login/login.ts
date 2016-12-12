@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController,LoadingController,AlertController } from 'ionic-angular';
-import { AlertPage } from '../alert/alert';
+import { NavController,LoadingController,AlertController,ToastController,ModalController } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import {RegisterPage} from '../register/register';
 
 @Component({
 	selector:'login-page',
@@ -10,7 +11,9 @@ import { AlertPage } from '../alert/alert';
 export class LoginPage {
 	constructor(public NavCtrl:NavController,
 		public LoadCtrl:LoadingController,
-		private alertCtrl:AlertController){
+		private alertCtrl:AlertController,
+		private toastCtrl:ToastController,
+		private modalCtrl:ModalController){
 	}
 	userInfo:UserInfo={
 		UserName:'liuzhuang',
@@ -19,14 +22,14 @@ export class LoginPage {
 
 	loadDefault(){
 		let loading = this.LoadCtrl.create({
-			content:"loading...",
+			content:"加载中...",
 			dismissOnPageChange:true,
 			showBackdrop:true,
 			cssClass:'danger'
 		});
 		loading.present();
 		setTimeout(()=>{
-			this.NavCtrl.push(AlertPage);
+			this.NavCtrl.push(HomePage);
 		},1000);
 		setTimeout(()=>{
 			loading.dismiss();
@@ -57,6 +60,19 @@ export class LoginPage {
 
 	}
 
+	presentToast(){
+		let toast = this.toastCtrl.create({
+			message:'this is a toast',
+			duration:3000,
+			position:"bottom",
+			showCloseButton:true,
+			closeButtonText:'x',
+			cssClass:'danger',
+			dismissOnPageChange:true
+		});
+		toast.present();
+	}
+
 	btnClick(){
 		// this.loadDefault();
 		// this.loadText();
@@ -67,7 +83,7 @@ export class LoginPage {
 				subTitle:"please enter a valid UserName",
 				message:'UserName can not be empty...',
 				buttons:["OK"],
-				cssClass:'danger',
+				cssClass:'primary',
 				inputs:["text","password"],
 				enableBackdropDismiss:false
 			});
@@ -83,7 +99,7 @@ export class LoginPage {
 						console.log('tap i see!');
 						return false;
 					},
-					cssClass:"color:danger"
+					cssClass:"btn"
 				},{
 					text:'Cancel',
 					handler:()=>{
@@ -102,7 +118,14 @@ export class LoginPage {
 		} 
 		else {
 			this.loadDefault();
+			//this.presentToast();
+			//this.NavCtrl.push(HomePage);
+			// this.NavCtrl.parent.select(0);
 		}
+	}
+
+	goToRegister(){
+		this.NavCtrl.push(RegisterPage);
 	}
 }
 
