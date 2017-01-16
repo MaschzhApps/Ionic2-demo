@@ -17,4 +17,16 @@
 			<button ion-button color="danger" (click)="btnClick()" block>Login</button>
 		</ion-item>
 	</ion-list>
+	<ion-grid>
+		<ion-row> 
+			<ion-col>
+				<div class="textAlignRight">
+					<button ion-button outline (click)="goToRegister()">没有账号，去注册</button>
+				</div>
+			</ion-col>	
+		</ion-row>
+	</ion-grid>
+	<ion-row>
+		<img src="{{userInfo.Url}}" (click)="uploadPic()" />
+	</ion-row>
 </ion-content>
